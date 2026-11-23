@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
-	var investmentAmount float64 = 1000
-	var expectedReturnRate = 5.5
+	var investmentAmount float64 = 1000 // explicit type declaration
+	expectedReturnRate := 5.5           // declare and assign a variable where the type should be inferred by Go
 	var years float64 = 10
 
-	var futureValue = investmentAmount * math.Pow(1+expectedReturnRate/100, years)
+	futureValue := investmentAmount * math.Pow(1+expectedReturnRate/100, years)
 	fmt.Println(futureValue)
 }
