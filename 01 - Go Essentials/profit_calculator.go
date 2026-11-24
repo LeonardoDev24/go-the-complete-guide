@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func Calculate() {
+func CalculateProfit() {
 	var revenue float64 = GetUserInput("Revenue: ")
 	var expenses float64 = GetUserInput("Expenses: ")
 	var taxRate float64 = GetUserInput("Tax rate: ")
