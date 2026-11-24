@@ -8,18 +8,9 @@ import (
 const inflationRate float64 = 2.5
 
 func main() {
-	var investmentAmount float64
-	var expectedReturnRate float64
-	var years float64
-
-	fmt.Print("Investment amount: $")
-	fmt.Scan(&investmentAmount) // pass the pointer to the variable
-
-	fmt.Print("Expected return rate: ")
-	fmt.Scan(&expectedReturnRate)
-
-	fmt.Print("Years: ")
-	fmt.Scan(&years)
+	var investmentAmount float64 = GetUserInput("Investment amount: $")
+	var expectedReturnRate float64 = GetUserInput("Expected return rate: ")
+	var years float64 = GetUserInput("Years: ")
 
 	var futureValue, futureRealValue float64 = calculateFutureValues(investmentAmount, expectedReturnRate, years)
 
@@ -27,6 +18,8 @@ func main() {
 	var formattedFutureRealValue string = fmt.Sprintf("Future value (adjusted for inflation): %.2f\n", futureRealValue)
 
 	fmt.Print(formattedFutureValue, formattedFutureRealValue)
+
+	Calculate()
 }
 
 func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) (float64, float64) {
