@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	CalculateInvestment()
-	CalculateProfit()
+	// CalculateInvestment()
+	// CalculateProfit()
 	Banking()
 }
