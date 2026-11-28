@@ -8,9 +8,14 @@ import (
 const inflationRate float64 = 2.5
 
 func CalculateInvestment() {
-	var investmentAmount float64 = GetUserInput("Investment amount: $")
-	var expectedReturnRate float64 = GetUserInput("Expected return rate: ")
-	var years float64 = GetUserInput("Years: ")
+	var investmentAmount, errInvAm = GetUserInput("Investment amount: $")
+	var expectedReturnRate, errExpR = GetUserInput("Expected return rate: ")
+	var years, errYrs = GetUserInput("Years: ")
+
+	if errInvAm != nil || errExpR != nil || errYrs != nil {
+		fmt.Println(errExpR.Error())
+		return
+	}
 
 	var futureValue, futureRealValue float64 = calculateFutureValues(investmentAmount, expectedReturnRate, years)
 
