@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func Banking() {
 	var accountBalance float64 = 1000
@@ -32,6 +35,7 @@ func Banking() {
 			}
 
 			accountBalance += depositAmount
+			writeBalanceToFile(accountBalance)
 			fmt.Printf("Balance updated! New amount: %.2f\n", accountBalance)
 		} else if choice == 3 {
 			fmt.Print("Enter your withdrawal amount: ")
@@ -51,6 +55,7 @@ func Banking() {
 			}
 
 			accountBalance -= withdrawalAmount
+			writeBalanceToFile(accountBalance)
 			fmt.Printf("Balance updated! New amount: %.2f\n", accountBalance)
 		} else {
 			fmt.Println("Goodbye!")
@@ -59,4 +64,10 @@ func Banking() {
 	}
 
 	fmt.Println("Thanks for choosing our bank!")
+}
+
+func writeBalanceToFile(balance float64) {
+	var balanceText string = fmt.Sprint(balance)
+	var balanceByte []byte = []byte(balanceText)
+	os.WriteFile("balance.txt", balanceByte, 0644)
 }
